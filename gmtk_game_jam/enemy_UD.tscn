@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://cbvt70thysgf"]
+
+[ext_resource type="Script" uid="uid://b2wrhnyo8w8wj" path="res://enemy_UD.gd" id="1_grrhk"]
+[ext_resource type="PackedScene" uid="uid://c5atmlo3dqknd" path="res://killzone.tscn" id="2_e22cr"]
+
+[sub_resource type="Gradient" id="Gradient_oboud"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gmt4v"]
+gradient = SubResource("Gradient_oboud")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j104m"]
+radius = 91.0055
+
+[node name="enemy_UD" type="Node2D"]
+position = Vector2(612, 335)
+script = ExtResource("1_grrhk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -1)
+texture = SubResource("GradientTexture2D_gmt4v")
+flip_h = true
+
+[node name="killzone" parent="." instance=ExtResource("2_e22cr")]
+position = Vector2(1, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_j104m")
+
+[node name="RayCastup" type="RayCast2D" parent="."]
+position = Vector2(1, -1)
+target_position = Vector2(-1, -57)
+
+[node name="RayCastdown" type="RayCast2D" parent="."]
+target_position = Vector2(0, 60)
