@@ -14,4 +14,4 @@ func _process(delta: float):
 	
 	position.y = direction * speed * delta
 func _draw():
-	draw_circle(Vector2.ZERO,50, Color.LEMON_CHIFFON , true,0.0,true)
+	draw_circle(Vector2.ZERO,50, Color.LEMON_CHIFFON , true)

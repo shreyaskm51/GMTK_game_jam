@@ -1,3 +1,20 @@
-[gd_scene format=3 uid="uid://q5mqiliwmxfk"]
+[gd_scene load_steps=4 format=3 uid="uid://q5mqiliwmxfk"]
 
-[node name="trapdoors" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://c5atmlo3dqknd" path="res://killzone.tscn" id="1_colce"]
+[ext_resource type="PackedScene" uid="uid://cmdy6jv8gpi1r" path="res://enemy_LR.tscn" id="2_0dh6k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1gih"]
+size = Vector2(30, 28)
+
+[node name="bear_trap" type="Node2D"]
+position = Vector2(1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="killzone" parent="." instance=ExtResource("1_colce")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+shape = SubResource("RectangleShape2D_c1gih")
+
+[node name="enemy_LR" parent="killzone" instance=ExtResource("2_0dh6k")]
+position = Vector2(128, 126)
